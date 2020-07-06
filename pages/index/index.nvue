@@ -1,0 +1,150 @@
+<template>
+	<gracePage :isSwitchPage="true" :headerHeight="0" statusBarBG="#3688FF"  :isLoading="pageLoading">
+		<!-- 页面主体插槽 -->
+		<view slot="gBody">
+			<view class="pageHeader grace-body">
+				<!-- logo -->
+				<view class="grace-flex grace-nowrap logo">
+					<text class="logo-text">GraceUI</text>
+					<text class="logo-ver">3.0</text>
+				</view>
+				<text class="logo-desc">一套代码多端发布 更丰富 更漂亮 更高效的超级UI</text>
+				<!-- 横向展示栏 -->
+				<view style="margin-top:50rpx;">
+					<graceBoxBanner background="rgba(255,255,255,0.1)" :color="['#FFFFFF', '#FFFFFF', '#FFFFFF']" 
+					:fontSize="['32rpx', '22rpx', '22rpx']" :items="items"></graceBoxBanner>
+				</view>
+				<view class="white-body" style="border-top-left-radius:10rpx; border-top-right-radius:10rpx;">
+					<view class="grace-title">
+						<view class="grace-title-border"></view>
+						<text class="grace-title-text grace-blue">世界，您好!</text>
+						<text class="grace-text-small grace-gray">grace.hcoder.net</text>
+					</view>
+				</view>
+			</view>
+			<!-- 白色内容区域 -->
+			<view class="white-body" style="margin-left:25rpx; margin-top:0; border-bottom-left-radius:10rpx; border-bottom-right-radius:10rpx;">
+				<view>
+					<text class="grace-text grace-black6">您已成功部署 GraceUI 请开始编写您的代码吧 ~</text>
+				</view>
+				<!-- 列表区域 -->
+				<view class="grace-list grace-margin-top">
+					<view class="grace-list-items" @tap="openDalog1">
+						<text class="grace-list-icon grace-icons">&#xe62f;</text>
+						<view class="grace-list-body">
+							<view class="grace-list-title">
+								<text class="grace-list-title-text">演示说明</text>
+								<text class="grace-list-title-desc">使用手机看更好看</text>
+							</view>
+						</view>
+					</view>
+					<view class="grace-list-items" @tap="openDalog2">
+						<text class="grace-list-icon grace-icons">&#xe629;</text>
+						<view class="grace-list-body">
+							<view class="grace-list-title">
+								<text class="grace-list-title-text">快速开始</text>
+								<text class="grace-list-title-desc">使用 GraceUI 的正确姿势</text>
+							</view>
+						</view>
+					</view>
+					<view class="grace-list-items" @tap="openDalog3">
+						<text class="grace-list-icon grace-icons">&#xe6b8;</text>
+						<view class="grace-list-body">
+							<view class="grace-list-title">
+								<text class="grace-list-title-text">一起成长</text>
+								<text class="grace-list-title-desc">反馈BUG、一起成长</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<!-- 弹窗组件 for 演示说明 -->
+			<graceDialog width="680rpx" :isTitle="false" :show="showDalog1" @closeDialog="closeDialogs" :isCloseBtn="false">
+				<view class="content" slot="content">
+					<text class="grace-text grace-black3">GraceUI 组件、界面、模板等累计近150个(weex版本叠加1倍)，因要演示的非常多、加上我们更新频率极高，我们无法给您提供一个完整的演示包~
+体验方案 : 每个组件、界面都在手册上方配有运行截图、下方配有完整的演示代码可以一键复制（点复制按钮）到您的项目的一个空白页面运行并测试;</text>
+				</view>
+				<view slot="btns" class="grace-space-between">
+					<text class="grace-dialog-buttons grace-blue" @tap="closeDialogs">朕知道了</text>
+				</view>
+			</graceDialog>
+			<!-- 弹窗组件 for 快速开始 -->
+			<graceDialog width="620rpx" :isTitle="false" :show="showDalog2" @closeDialog="closeDialogs" :isCloseBtn="false">
+				<view class="content" slot="content">
+					<text class="grace-text grace-black3">新建一个 demo.vue/nvue，在 GraceUI 手册上点击演示代码右上角的复制按钮，然后在 demo 上直接粘贴，就可以立即看到组件及界面的效果~</text>
+				</view>
+				<view slot="btns" class="grace-space-between">
+					<text class="grace-dialog-buttons grace-blue" @tap="closeDialogs">朕知道了</text>
+				</view>
+			</graceDialog>
+			<!-- 弹窗组件 for 一起成长 -->
+			<graceDialog width="620rpx" :isTitle="false" :show="showDalog3" @closeDialog="closeDialogs" :isCloseBtn="false">
+				<view class="content" slot="content">
+					<text class="grace-text grace-black3">您付费购买的框架产品是一年半以来每天坚持8小时以上的努力结果！请耐心地学习、使用，一旦您掌握了框架的使用，对您的帮助会远大于299元！
+
+因用户较多，人手有限，我们不提供框架外的相关行业知识问答服务，不提供1对1问答服务~ 付费后我们会邀请您进入付费用户群（ 老用户很多 ），遇到问题群里交流互助，谢谢您的理解~
+请遵守遇到问题好好说话的基本礼仪、我们希望和 " 内心豁达、成熟 " 的技术人一起长期走下去;
+
+收费只是最基本的维护开销，不是"赚钱的买卖"，我们更认为是您的一种信任，对于我们更多的是责任！所以这里不是淘宝，不是简单的交易！我们希望得到正向的反馈、正向的帮助，不断完善，最终成为"组件最多、最稳定、最好用"的超级UI框架！
+谢谢大家的支持！谢谢每一个优质的反馈 ~</text>
+				</view>
+				<view slot="btns" class="grace-space-between">
+					<text class="grace-dialog-buttons grace-blue" @tap="closeDialogs">朕知道了</text>
+				</view>
+			</graceDialog>
+		</view>
+	</gracePage>
+</template>
+<script>
+import gracePage from "../../graceUI/weexComponents/gracePage.nvue";
+import graceBoxBanner from "../../graceUI/weexComponents/graceBoxBanner.nvue";
+import graceDialog from '../../graceUI/weexComponents/graceDialog.nvue';
+// 演示调用 common.js
+var common = require('../../common.js');
+const dom = weex.requireModule('dom');
+export default {
+	data() {
+		return {
+			items: [
+				['100', '+', '基础组件'],
+				['30', '+', '界面模板'],
+				['Grace', '.JS', '超级工具'],
+				['1万', '+', '开发用户']
+			],
+			showDalog1 : false,
+			showDalog2 : false,
+			showDalog3 : false,
+			pageLoading: true
+		}
+	},
+	onLoad:function(){
+		common.myfun();
+		setTimeout(()=>{this.pageLoading = false;}, 3000);
+	},
+	methods:{
+		closeDialogs:function(){
+			this.showDalog1 = false;
+			this.showDalog2 = false;
+			this.showDalog3 = false;
+		},
+		openDalog1 : function(){this.showDalog1 = true;},
+		openDalog2 : function(){this.showDalog2 = true;},
+		openDalog3 : function(){this.showDalog3 = true;}
+	},
+	components:{
+		gracePage, graceBoxBanner, graceDialog
+	}
+}
+</script>
+<style>
+.pageHeader{background-image:linear-gradient(to bottom, #3688FF,#5a52ec); width:750rpx;}
+.logo{margin-top:50rpx;}
+.logo-text{font-size:50rpx; color:#FFFFFF; font-weight:700; opacity:0.88; line-height:60rpx;}
+.logo-ver{font-size:26rpx; color:#FFFFFF; margin-left:16rpx; line-height:38rpx; font-weight:800; opacity:0.9;}
+.logo-desc{line-height:38rpx; font-size:26rpx; color:#FFFFFF; opacity:.5; margin-top:20rpx;}
+.white-body{width:700rpx; margin-top:50rpx; background-color:#FFFFFF; padding:25rpx;}
+.grace-title-border{width:8rpx; background-color:#3688FF; margin-right:16rpx; height:28rpx;}
+.grace-list-icon{color:#3688FF; font-size:32rpx !important; width:50rpx;}
+.grace-list-body{margin-left:12rpx;}
+.content{padding:25rpx;}
+</style>

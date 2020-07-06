@@ -1,0 +1,83 @@
+{
+	"pages": [{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"titleNView": false
+				// "navigationStyle" : "custom"
+			}
+		}, {
+			"path": "pages/car/car",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"titleNView": false
+				// "navigationStyle" : "custom"
+			}
+		}, {
+			"path": "pages/sort/sort",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"titleNView": false
+			}
+		}, {
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"titleNView": false
+			}
+		}
+
+	],
+	"subPackages": [{
+		"root": "packA",
+		"pages": [{
+				"path": "search/search",
+				"style": {
+
+				}
+			}
+
+		]
+	}],
+
+
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "GraceUI",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar": {
+		"color": "#6B7374",
+		"selectedColor": "#3688FF",
+		"borderStyle": "white",
+		"backgroundColor": "#F6F7F8",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"text": "首页",
+			"iconPath": "./static/tabbar/index.png",
+			"selectedIconPath": "./static/tabbar/index-active.png"
+		}, {
+			"pagePath": "pages/car/car",
+			"text": "购物车",
+			"iconPath": "./static/tabbar/car.png",
+			"selectedIconPath": "./static/tabbar/car-active.png"
+		}, {
+			"pagePath": "pages/sort/sort",
+			"text": "分类",
+			"iconPath": "./static/tabbar/fenlei.png",
+			"selectedIconPath": "./static/tabbar/fenlei-active.png"
+		}, {
+			"pagePath": "pages/me/me",
+			"text": "我的",
+			"iconPath": "./static/tabbar/me.png",
+			"selectedIconPath": "./static/tabbar/me-active.png"
+		}]
+	},
+	"easycom": {
+		"custom": {
+			"autoscan": false,
+			"grace(.*)": "@/graceUI/components/grace$1.vue"
+		}
+	}
+}

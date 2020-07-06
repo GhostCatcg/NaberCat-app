@@ -1,0 +1,113 @@
+<template>
+	<gracePage :customHeader="false">
+		<view slot="gBody" class="grace-body">
+			<view class="grace-margin-top" style="padding:20rpx 0;">
+				<text class="grace-h4 grace-bold">个人中心</text>
+			</view>
+			<view class="grace-list">
+				<view class="grace-list-items">
+					<view class="grace-list-image ucenter-face grace-relative">
+						<image class="grace-list-image ucenter-face-image" src="https://graceui.oss-cn-beijing.aliyuncs.com/faces/1.png" mode="widthFix"></image>
+					</view>
+					<view class="grace-list-body">
+						<view class="grace-list-title">
+							<text class="grace-list-title-text">标题信息</text>
+						</view>
+						<view class="grace-list-body-desc">描述信息</view>
+					</view>
+					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
+				</view>
+			</view>
+			<view class="ucenter-line"></view>
+			<view>
+				<graceBoxBanner :items="items"></graceBoxBanner>
+			</view>
+			<view class="ucenter-line"></view>
+			<view class="grace-list grace-margin-top">
+				<view class="grace-list-items">
+					<text class="grace-list-icon grace-icons icon-friend grace-blue"></text>
+					<view class="grace-list-body grace-border-b">
+						<view class="grace-list-title">
+							<text class="grace-list-title-text">好友动态</text>
+							<text class="grace-badge grace-bg-red">12</text>
+						</view>
+					</view>
+					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
+				</view>
+				<view class="grace-list-items">
+					<text class="grace-list-icon grace-icons icon-wallet grace-green"></text>
+					<view class="grace-list-body grace-border-b">
+						<view class="grace-list-title">
+							<text class="grace-list-title-text">我的钱包</text>
+						</view>
+					</view>
+					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
+				</view>
+				<view class="grace-list-items">
+					<text class="grace-list-icon grace-icons icon-article grace-blue-sky"></text>
+					<view class="grace-list-body grace-border-b">
+						<view class="grace-list-title">
+							<text class="grace-list-title-text">我的文章</text>
+						</view>
+					</view>
+					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
+				</view>
+				<view class="grace-list-items">
+					<text class="grace-list-icon grace-icons icon-user grace-red"></text>
+					<view class="grace-list-body">
+						<view class="grace-list-title">
+							<text class="grace-list-title-text">身份认证</text>
+						</view>
+					</view>
+					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
+				</view>
+			</view>
+			<view class="ucenter-line"></view>
+			<view class="grace-list grace-margin-top">
+				<view class="grace-list-items">
+					<text class="grace-list-icon grace-icons icon-set grace-yellow"></text>
+					<view class="grace-list-body grace-border-b">
+						<view class="grace-list-title">
+							<text class="grace-list-title-text">账户设置</text>
+						</view>
+					</view>
+					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
+				</view>
+				<view class="grace-list-items">
+					<text class="grace-list-icon grace-icons icon-phone grace-red"></text>
+					<view class="grace-list-body">
+						<view class="grace-list-title">
+							<text class="grace-list-title-text">手机密保</text>
+						</view>
+					</view>
+					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
+				</view>
+			</view>
+		</view>
+	</gracePage>
+</template>
+<script>
+import gracePage from "../../graceUI/components/gracePage.vue";
+import graceBoxBanner from "../../graceUI/components/graceBoxBanner.vue";
+export default {
+	data() {
+		return {
+			items: [
+				[80, '', '动态'],
+				[100, '', '好友'],
+				[50, '', '私信'],
+				['￥199', '', '余额']
+			]
+		}
+	},
+	methods:{},
+	components:{
+		gracePage, graceBoxBanner
+	}
+}
+</script>
+<style>
+.ucenter-face{width:100rpx !important; height:100rpx !important;}
+.ucenter-face-image{width:100rpx !important; height:100rpx !important;}
+.ucenter-line{height:12rpx; background-color:#F4F5F6; margin:16rpx 0;}
+</style>
