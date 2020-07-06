@@ -98,21 +98,7 @@ export default {
 					}
 				]
 			},
-			{
-				"checked" : true,
-				"shopName": " 官方旗舰店",
-				"shopId": "2",
-				"items": [
-					{
-						"goodsId": 3,
-						"goodsName": "uni-app 演示商品",
-						"price": 30.00,
-						"count": 2,
-						"img": "https://img10.360buyimg.com/n7/jfs/t19690/263/1947634738/190301/ad172397/5adfe5eaN42591f8c.jpg",
-						"checked" : true
-					}
-				]
-			}
+			
 		]}
 	},
 	onLoad : function(){

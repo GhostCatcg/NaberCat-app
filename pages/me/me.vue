@@ -127,12 +127,12 @@ export default {
 	align-items: center;
 	background-image: url('https://img.yzcdn.cn/upload_files/2018/07/16/FtwPY7QwJLjqnDolIe5h0--Jyzmb.jpg');
 	background-size: 100% 100%;
-	padding: 0 30upx;
+	
 	.avatar {
 		width: 120upx;
 		height: 120upx;
 		overflow: hidden;
-		margin-right: 35rpx;
+		margin: 0 30rpx;
 		background: #f0f0f0;
 		background-size: 120upx 120upx;
 		border: 1px solid #fff;
