@@ -7,32 +7,32 @@
 		<view slot="gBody">
 			<!-- 被禁用的 input -->
 			<view style="padding:30rpx; background-color:#F6F7F8;"><graceSearch :disabled="true" @tapme="tapme"></graceSearch></view>
-			<view><graceSwiper :swiperItems="swiperItems" :width="700" :height="315" :indicatorActiveWidth="38" @swiperchange="swiperchange"></graceSwiper></view>
-			<view class="grace-title grace-margin-top">
-				<view class="grace-title-border"></view>
-				<text class="grace-title-text grace-blue">栏目导航</text>
+			<view>
+				
+				<graceSwiper :swiperItems="swiperItems" :width="750" :padding="50" :indicatorWidth="38" :indicatorHeight="10" :indicatorActiveWidth="38" :indicatorRadius="0" :height="315"></graceSwiper>
 			</view>
-			<view class="grace-grids grace-margin-top eight">
-				<view class="grace-grids-items" v-for="v in 8">
-					<image class="grace-grids-icon-img" src="https://graceui.oss-cn-beijing.aliyuncs.com/faces/1.png" mode="widthFix"></image>
+			
+			<view class="navTab">
+				<view class="navItem" v-for="v in 10">
+					<image class="grace-grids-icon-img img" src="https://graceui.oss-cn-beijing.aliyuncs.com/faces/1.png" mode="widthFix"></image>
 					<text class="grace-grids-text">文字</text>
 				</view>
 			</view>
-			<view class="grace-title grace-margin-top">
-				<view class="grace-title-border"></view>
-				<text class="grace-title-text grace-blue">精选主粮</text>
-					<text class="grace-text-small grace-gray">查看全部></text>
+			<view class="grace-title ">
+				<image src="../../static/imgs/foods.png" style="width: 100%;" mode="widthFix"></image>
 			</view>
-			<view class="grace-img-card">
-				<view class="grace-img-card-item" v-for="v in 6">
-					<view class="grace-img-card-img">
-						<image src="https://graceui.oss-cn-beijing.aliyuncs.com/demoimgs/1.png" class="grace-img-card-img"></image>
-						<text class="grace-tags grace-gtbg-purple grace-absolute-lt">HOT</text>
+			<view class="itemBox">
+				<view class="item" v-for="v in 6" :key='v'>
+					<view class="pic">
+						<image src="https://img.yzcdn.cn/upload_files/2020/03/18/FvVMEMqsT1JiCUhZxdWVci6adNn_.jpg" mode="widthFix"></image>
 					</view>
-					<text class="grace-img-card-title">标题文字</text>
-					<view class="grace-img-card-more">
-						<text class="grace-img-card-price">￥99.99</text>
-						<text class="grace-img-card-btn">按钮</text>
+					<view class="memo">
+						
+    NOW无谷小型犬四叶草全龄粮6磅/12磅/25磅 泰迪比熊去泪痕狗粮 加拿大进口
+  
+					</view>
+					<view class="price">
+						￥269
 					</view>
 				</view>
 			</view>
@@ -52,31 +52,26 @@ export default {
 				{
 					img: 'https://graceui.oss-cn-beijing.aliyuncs.com/swiperimgs/1.png',
 					url: '',
-					title: '测试标题 001',
 					opentype: 'navigate'
 				},
 				{
 					img: 'https://graceui.oss-cn-beijing.aliyuncs.com/swiperimgs/2.png',
 					url: '',
-					title: '测试标题 02',
 					opentype: 'navigate'
 				},
 				{
 					img: 'https://graceui.oss-cn-beijing.aliyuncs.com/swiperimgs/3.png',
 					url: '',
-					title: '测试标题很长很长很长很长很长很长很长很长很长很长很长很长很长很长',
 					opentype: 'navigate'
 				},
 				{
 					img: 'https://graceui.oss-cn-beijing.aliyuncs.com/swiperimgs/4.png',
 					url: '',
-					title: '测试标题04',
 					opentype: 'navigate'
 				},
 				{
 					img: 'https://graceui.oss-cn-beijing.aliyuncs.com/swiperimgs/5.png',
 					url: '',
-					title: '测试标题05',
 					opentype: 'navigate'
 				}
 			]
@@ -109,4 +104,67 @@ export default {
 	}
 };
 </script>
-<style></style>
+<style scoped>
+	view{
+		font-size: 24upx !important;
+	}
+</style>
+<style lang="less" scoped>
+	// .grace-swiper-card{
+	// 	margin: 0 auto;
+	// }
+	
+	.img{
+		border-radius: 50%;
+		margin: 0 auto;
+	}
+	page{
+		background: #f8f8f8;
+	}
+	.navTab{
+		width: 100%;
+		padding: 20upx 0;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		.navItem{
+			width: 19%;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+	.itemBox{
+			padding: 10upx 20upx;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			
+			justify-content: space-around;
+			.item{
+				width: 30%;
+				font-size: 24upx !important;
+				margin: 20upx 0;
+				.pic{
+					width: 100%;
+					image{
+						width: 100%;
+					}
+				}
+				.memo{
+					width: 90%;
+					margin: 20upx 0;
+					    overflow : hidden;
+					    text-overflow: ellipsis;
+					    display: -webkit-box;
+					    -webkit-line-clamp: 2;
+					    -webkit-box-orient: vertical;
+					
+				}
+				.price{
+					color: red;
+				}
+			}
+	}
+</style>

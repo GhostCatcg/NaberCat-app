@@ -1,5 +1,5 @@
 <template>
-	<gracePage :customHeader="false">
+	<gracePage :isSwitchPage="true" :customHeader="false">
 		<!-- 使用自定义底部导航时为主体增加底部 padding 避免遮盖 -->
 		<view slot="gBody" class="grace-body" style="padding-bottom:150rpx;">
 			<!-- 购物车为空 -->

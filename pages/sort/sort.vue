@@ -1,8 +1,8 @@
 <template>
-	<gracePage :customHeader="false">
+	<gracePage :isSwitchPage="true" :customHeader="false">
 		<view slot="gBody" class="grace-flex-v1" id="gBody">
 			<!-- 搜索组件 -->
-			<view style="padding:20rpx 100rpx; background-color:#F6F7F8;" id="hSearch">
+			<view style="padding:20rpx ; background-color:#F6F7F8;" id="hSearch">
 				<graceSearch @clear="search" @confirm="search"></graceSearch>
 			</view>
 			<!-- 数据区域 -->
@@ -15,20 +15,24 @@
 				<scroll-view :scroll-into-view="productListTo" 
 				scroll-y class="grace-cate-right grace-scroll-y" :style="{height:mainHeight+'px'}" @scroll="rscroll">
 					<!-- 循环输出分类名称 -->
-					<view v-for="(cate, cateindex) in mainCate" :key="cateindex" :id="'productList'+cate.cateid">
+					<view v-for="(cate, cateindex) in mainCate" class="content" :key="cateindex" :id="'productList'+cate.cateid">
 						<text class="right-cate-name">{{cate.name}}</text>
 						<!-- 循环对应分类下的商品 -->
-						<view :id="'products'+product.productId" :data-parentId="cate.cateid" 
+						<!-- <view :id="'products'+product.productId" :data-parentId="cate.cateid" 
 						class="grace-product-list grace-space-between products" @click.stop="gotoinfo(product.productId)"
 						v-for="(product, productIndex) in allProducts['cate'+cate.cateid+'products']" :key="productIndex">
-							<image class="grace-product-list-img" :src="product.img" ></image>
-							<view class="grace-product-list-body">
+							<view class="">
+								<image class="grace-product-list-img" :src="product.img" ></image>
 								<text class="grace-product-title">{{product.name}}</text>
 								<text class="grace-product-price">¥{{product.price}}</text>
-								<view class="grace-nowrap grace-flex-end">
-									<text class="grace-product-btn grace-icons">&#xe625;</text>
-								</view>
 							</view>
+							
+						</view> -->
+						<view class="item" :id="'products'+product.productId" :data-parentId="cate.cateid"  @click.stop="gotoinfo(product.productId)"
+						v-for="(product, productIndex) in allProducts['cate'+cate.cateid+'products']" :key="productIndex">
+								<image class="grace-product-list-img" :src="product.img" ></image>
+								<text class="grace-product-title">{{product.name}}</text>
+								<!-- <text class="grace-product-price">¥{{product.price}}</text> -->
 						</view>
 					</view>
 				</scroll-view>
@@ -145,7 +149,7 @@ export default {
 	components:{gracePage, graceSearch}
 }
 </script>
-<style>
+<style lang="less" scoped>
 .grace-cate-wrap{width:750rpx;}
 .grace-cate-left{width:200rpx; background-color:#F6F7F8;}
 .grace-cate-right{width:530rpx; overflow:hidden;}
@@ -158,4 +162,15 @@ export default {
 .grace-product-title{line-height:50rpx; font-size:28rpx; display:block; width:100%;}
 .grace-product-price{line-height:60rpx; font-size:32rpx; color:#FF0036; display:block; width:100%;}
 .grace-product-btn{line-height:60rpx; font-size:40rpx; color:#FF0036; padding-right:20rpx;}
+.content{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	.item{
+		width: 30%;
+		&:last-child{
+			margin-right:auto
+		}
+	}
+}
 </style>

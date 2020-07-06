@@ -27,15 +27,24 @@
 			}
 		}
 
-	],
+	  
+    ],
 	"subPackages": [{
 		"root": "packA",
 		"pages": [{
 				"path": "search/search",
 				"style": {
-
+					"navigationBarTitleText": "搜索",
+					"titleNView": false
 				}
-			}
+			},
+			{
+					"path": "order/order",
+					"style": {
+						"navigationBarTitleText": "订单中心",
+						"titleNView": false
+					}
+				}
 
 		]
 	}],

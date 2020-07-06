@@ -1,5 +1,5 @@
 <template>
-	<gracePage :customHeader="false">
+	<gracePage :isSwitchPage="true" :customHeader="false">
 		<!-- 页面主体 -->
 		<view slot="gBody">
 			<!-- 搜索组件宽度自适应于外层 -->
