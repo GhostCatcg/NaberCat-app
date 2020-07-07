@@ -1,19 +1,19 @@
 <template>
-	<gracePage :customHeader="false">
+	<gracePage style="background: #F6F7F8" :customHeader="false">
 		<!-- 	<view slot="gHeader" class="grace-header-body">
 					<view class="grace-header-content grace-flex-center">自定义头部导航</view>
 				</view> -->
 		<!-- 页面主体 -->
 		<view slot="gBody">
 			<!-- 被禁用的 input -->
-			<view style="padding:30rpx; background-color:#F6F7F8;"><graceSearch :disabled="true" @tapme="tapme"></graceSearch></view>
+			<view style="padding:30rpx; "><graceSearch :disabled="true" @tapme="tapme"></graceSearch></view>
 			<view>
 				
 				<graceSwiper :swiperItems="swiperItems" :width="750" :padding="50" :indicatorWidth="38" :indicatorHeight="10" :indicatorActiveWidth="38" :indicatorRadius="0" :height="315"></graceSwiper>
 			</view>
 			
 			<view class="navTab">
-				<view class="navItem" v-for="v in 10">
+				<view class="navItem" v-for="(v,k) in 10" :key="k">
 					<image class="grace-grids-icon-img img" src="https://graceui.oss-cn-beijing.aliyuncs.com/faces/1.png" mode="widthFix"></image>
 					<text class="grace-grids-text">文字</text>
 				</view>

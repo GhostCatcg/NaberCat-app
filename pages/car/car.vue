@@ -57,7 +57,7 @@
 				<text class="grace-text">合计 :</text>
 				<text style="font-size:32rpx; color:#F00;">￥{{totalprice}}</text>
 			</view>
-			<view class="grace-shoppingcard-checkout grace-bg-red" @tap="checkout">立即结算</view>
+			<view class="grace-shoppingcard-checkout " style="background: #f9c76f;color: #fff;" @tap="checkout">立即结算</view>
 		</view>
 	</gracePage>
 </template>

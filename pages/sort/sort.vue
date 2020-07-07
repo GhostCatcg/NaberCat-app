@@ -10,13 +10,14 @@
 				<scroll-view scroll-y class="grace-cate-left grace-scroll-y" :style="{height:mainHeight+'px'}" :scroll-into-view="leftTo">
 					<text v-for="(item, index) in mainCate" 
 					:key="index" :class="['grace-cate-left-item', currentCateIndex == item.cateid ? 'grace-cate-left-current' : '']" 
+					 :style="currentCateIndex == item.cateid ?'color: #f9c76f':''"
 					:data-cateid="item.cateid"  @tap='changCate' :id="'cate'+item.cateid">{{item.name}}</text>
 				</scroll-view>
 				<scroll-view :scroll-into-view="productListTo" 
 				scroll-y class="grace-cate-right grace-scroll-y" :style="{height:mainHeight+'px'}" @scroll="rscroll">
 					<!-- 循环输出分类名称 -->
 					<view v-for="(cate, cateindex) in mainCate" class="content" :key="cateindex" :id="'productList'+cate.cateid">
-						<text class="right-cate-name">{{cate.name}}</text>
+						<text class="right-cate-name" style="color: #f9c76f">{{cate.name}}</text>
 						<!-- 循环对应分类下的商品 -->
 						<!-- <view :id="'products'+product.productId" :data-parentId="cate.cateid" 
 						class="grace-product-list grace-space-between products" @click.stop="gotoinfo(product.productId)"
@@ -158,8 +159,8 @@ export default {
 .right-cate-name{line-height:80rpx; font-size:28rpx; color:#666666; font-weight:bold; display:block; width:100%;}
 .grace-product-list{padding:10rpx 0; margin-bottom:5px; font-size:0;}
 .grace-product-list-body{width:355rpx; padding-right:10rpx;}
-.grace-product-list-img{width:150rpx; height:150rpx;}
-.grace-product-title{line-height:50rpx; font-size:28rpx; display:block; width:100%;}
+.grace-product-list-img{width:100rpx; height:100rpx;}
+.grace-product-title{line-height:50rpx; font-size:24rpx; display:block; width:100%;}
 .grace-product-price{line-height:60rpx; font-size:32rpx; color:#FF0036; display:block; width:100%;}
 .grace-product-btn{line-height:60rpx; font-size:40rpx; color:#FF0036; padding-right:20rpx;}
 .content{

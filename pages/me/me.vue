@@ -4,14 +4,12 @@
 			<view class="header">
 				<view class="avatar"><image src="../../static/tabbar/me.png" mode=""></image></view>
 				<view class="userInfo">
-					<view class="userPhone">
-						151****8165
-					</view>
-					<view>
-						<text  class="tips">
-						成长值0
-						</text>
-					</view>
+					<view class="userPhone">151****8165</view>
+					<view><text class="tips">成长值0</text></view>
+				</view>
+				<view class="level">
+					<view class="name"><image src="https://b.yzcdn.cn/member-center/free-icon-1.png" style="width: 30upx;margin-right: 10upx;vertical-align: middle;" mode="widthFix"></image>布兜家宠物用品商城</view>
+					<view class="toVip"> 成为会员 ></view>
 				</view>
 			</view>
 			<view class="ucenter-line"></view>
@@ -20,53 +18,33 @@
 			<view class="orderBox">
 				<view class="title">
 					<text style="font-weight: 600;">我的订单</text>
-					<text style="float:right;font-size: 24upx;color: #999;" @click="toOrder">查看全部订单 > </text>
+					<text style="float:right;font-size: 24upx;color: #999;" @click="toOrder">查看全部订单 ></text>
 				</view>
 				<view class="content">
 					<view class="item" @click="toOrder">
-						<view class="img">
-							<image src="https://b.yzcdn.cn/public_files/2019/04/28/1be3ce61d72286c7ac6e56fbb7d0735c.svg" mode="widthFix"></image>
-						</view>
-						<view class="text">
-							待付款
-						</view>
+						<view class="img"><image src="https://b.yzcdn.cn/public_files/2019/04/28/1be3ce61d72286c7ac6e56fbb7d0735c.svg" mode="widthFix"></image></view>
+						<view class="text">待付款</view>
 					</view>
-					
+
 					<view class="item">
-						<view class="img">
-							<image src="https://b.yzcdn.cn/public_files/2019/04/28/72cc80f8b65eae45862cafe0d27e78f7.svg" mode="widthFix"></image>
-						</view>
-						<view class="text">
-							待发货
-						</view>
+						<view class="img"><image src="https://b.yzcdn.cn/public_files/2019/04/28/72cc80f8b65eae45862cafe0d27e78f7.svg" mode="widthFix"></image></view>
+						<view class="text">待发货</view>
 					</view>
 					<view class="item">
-						<view class="img">
-							<image src="https://b.yzcdn.cn/public_files/2019/04/28/d729a66ef2fe52dd47ae6998921b43fe.svg" mode="widthFix"></image>
-						</view>
-						<view class="text">
-							待收货
-						</view>
+						<view class="img"><image src="https://b.yzcdn.cn/public_files/2019/04/28/d729a66ef2fe52dd47ae6998921b43fe.svg" mode="widthFix"></image></view>
+						<view class="text">待收货</view>
 					</view>
 					<view class="item">
-						<view class="img">
-							<image src="https://b.yzcdn.cn/public_files/2019/04/28/a4a60cccd63f9d3ff476cb22f51146d7.svg" mode="widthFix"></image>
-						</view>
-						<view class="text">
-							评价
-						</view>
+						<view class="img"><image src="https://b.yzcdn.cn/public_files/2019/04/28/a4a60cccd63f9d3ff476cb22f51146d7.svg" mode="widthFix"></image></view>
+						<view class="text">评价</view>
 					</view>
 					<view class="item">
-						<view class="img">
-							<image src="https://b.yzcdn.cn/public_files/2019/04/28/15ed25836631717b7ff77266a1795328.svg" mode="widthFix"></image>
-						</view>
-						<view class="text">
-							售后/退款
-						</view>
+						<view class="img"><image src="https://b.yzcdn.cn/public_files/2019/04/28/15ed25836631717b7ff77266a1795328.svg" mode="widthFix"></image></view>
+						<view class="text">售后/退款</view>
 					</view>
 				</view>
 			</view>
-				<view class="ucenter-line"></view>
+			<view class="ucenter-line"></view>
 			<view class="grace-list grace-margin-top">
 				<view class="grace-list-items">
 					<text class="grace-list-icon grace-icons icon-shoppingcard grace-yellow"></text>
@@ -75,7 +53,6 @@
 					</view>
 					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
 				</view>
-				
 			</view>
 			<view class="ucenter-line"></view>
 			<view class="grace-list grace-margin-top">
@@ -86,7 +63,6 @@
 					</view>
 					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
 				</view>
-				
 			</view>
 		</view>
 	</gracePage>
@@ -101,15 +77,15 @@ export default {
 		};
 	},
 	methods: {
-		toOrder(){
+		toOrder() {
 			uni.navigateTo({
-				url:'../../packA/order/order'
-			})
+				url: '../../packA/order/order'
+			});
 		},
-		toShopCar(){
+		toShopCar() {
 			uni.switchTab({
-				url:'../car/car'
-			})
+				url: '../car/car'
+			});
 		}
 	},
 	components: {
@@ -122,12 +98,12 @@ export default {
 .header {
 	width: 100%;
 	height: 330rpx;
-
+	position: relative;
 	display: flex;
 	align-items: center;
 	background-image: url('https://img.yzcdn.cn/upload_files/2018/07/16/FtwPY7QwJLjqnDolIe5h0--Jyzmb.jpg');
 	background-size: 100% 100%;
-	
+
 	.avatar {
 		width: 120upx;
 		height: 120upx;
@@ -143,38 +119,69 @@ export default {
 			height: 100%;
 		}
 	}
-	.userInfo{
-		.userPhone{
+	.userInfo {
+		.userPhone {
 			font-size: 40upx;
 			font-weight: 700;
 		}
-		.tips{
+		.tips {
 			border: 1px solid #171717;
-			    border-radius: 40upx;
-				background-image: radial-gradient(circle at 2% 85%,#444039 0,#37332c 82%);
-				    padding: 4upx 16upx;
-				    color: #fddda5;
-				    font-size: 22upx;
-				    line-height: 32upx;
-				    letter-spacing: 0;
+			border-radius: 40upx;
+			background-image: radial-gradient(circle at 2% 85%, #444039 0, #37332c 82%);
+			padding: 4upx 16upx;
+			color: #fddda5;
+			font-size: 22upx;
+			line-height: 32upx;
+			letter-spacing: 0;
+		}
+	}
+	.level {
+		position: absolute;
+		bottom: 0;
+		left: 3%;
+		width: 94%;
+		height: 40px;
+		color: #fff;
+		border-radius: 8px 8px 0 0;
+		box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.2);
+		background: rgba(0, 0, 0, 0.8);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.name{
+			    align-self: flex-start;
+			    padding-left: 10px;
+			    overflow: hidden;
+			    font-size: 12px;
+			    line-height: 40px;
+			    white-space: nowrap;
+			    text-overflow: ellipsis;
+			    -webkit-line-clamp: 1;
+			    -webkit-box-orient: vertical;
+			    color: #ffdea0;
+		}
+		.toVip{
+			cursor: pointer;
+			color: #fff;
+			font-size: 24upx;
 		}
 	}
 }
-.orderBox{
-	.title{
+.orderBox {
+	.title {
 		padding: 10upx 20upx;
 		border-bottom: 1px solid #e7e7e7;
 	}
-	.content{
+	.content {
 		padding: 40upx 0;
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
-		.item{
+		.item {
 			text-align: center;
-			.img{
+			.img {
 				width: 100%;
-				image{
+				image {
 					width: 50upx;
 				}
 			}
