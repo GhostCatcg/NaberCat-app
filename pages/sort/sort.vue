@@ -58,18 +58,18 @@ export default {
 			// 产品列表滚动定位
 			productListTo: '',
 			mainCate: [
-				{ cateid: 1, name: '热门推荐' },
-				{ cateid: 2, name: '促销打折' },
-				{ cateid: 3, name: '国际名牌' },
-				{ cateid: 4, name: '大衣外套' },
-				{ cateid: 5, name: '汽车用品' },
-				{ cateid: 6, name: '儿童用品' },
-				{ cateid: 7, name: '文具用品' },
-				{ cateid: 8, name: '精品男装' },
-				{ cateid: 9, name: '精品女装' },
-				{ cateid: 10, name: '电脑办公' },
-				{ cateid: 11, name: '礼品鲜花' },
-				{ cateid: 12, name: '其他商品' }
+				{ cateid: 1, name: '热卖' },
+				{ cateid: 2, name: '主粮' },
+				{ cateid: 3, name: '驱虫' },
+				{ cateid: 4, name: '猫咪专区' },
+				{ cateid: 5, name: '零食' },
+				{ cateid: 6, name: '保健' },
+				{ cateid: 7, name: '日用' },
+				{ cateid: 8, name: '户外' },
+				{ cateid: 9, name: '玩具' },
+				{ cateid: 10, name: '窝具' },
+				{ cateid: 11, name: '服饰' },
+				{ cateid: 12, name: '其他' }
 			],
 			// 商品信息
 			allProducts: productsData.allProducts
@@ -155,12 +155,24 @@ export default {
 .grace-cate-left{width:200rpx; background-color:#F6F7F8;}
 .grace-cate-right{width:530rpx; overflow:hidden;}
 .grace-cate-left-item{display:inline-flex; width:100%; line-height:40rpx; height:40rpx; padding:35rpx 0; font-size:26rpx; justify-content:center;}
-.grace-cate-left-current{background-color:#FFFFFF; color:#FF0036;}
+.grace-cate-left-current{background-color:#FFFFFF; color:#FF0036;
+	position: relative;
+	&::before{
+		content: "";
+		display: block;
+		background: #f9c76f;
+		position: absolute;
+		left: 0;
+		top:25%;
+		width: 10upx;
+		height: 50%;
+	}
+}
 .right-cate-name{line-height:80rpx; font-size:28rpx; color:#666666; font-weight:bold; display:block; width:100%;}
 .grace-product-list{padding:10rpx 0; margin-bottom:5px; font-size:0;}
 .grace-product-list-body{width:355rpx; padding-right:10rpx;}
-.grace-product-list-img{width:100rpx; height:100rpx;}
-.grace-product-title{line-height:50rpx; font-size:24rpx; display:block; width:100%;}
+.grace-product-list-img{width:100rpx; height:100rpx;margin-bottom: 10upx;}
+.grace-product-title{ font-size:28rpx; display:block; width:100%;}
 .grace-product-price{line-height:60rpx; font-size:32rpx; color:#FF0036; display:block; width:100%;}
 .grace-product-btn{line-height:60rpx; font-size:40rpx; color:#FF0036; padding-right:20rpx;}
 .content{
@@ -168,7 +180,10 @@ export default {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	.item{
+		margin-bottom: 20upx;
+		height: 200upx;
 		width: 30%;
+		text-align: center;
 		&:last-child{
 			margin-right:auto
 		}

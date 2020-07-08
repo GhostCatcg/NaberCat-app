@@ -63,7 +63,7 @@ export default {
 <style scoped>
 .grace-box-banner{padding:26rpx 0; display:flex; flex-wrap:nowrap; overflow:hidden;}
 .grace-box-items{width:100%;}
-.grace-box-banner-line{overflow:hidden; display:flex; width:100%; justify-content:center; align-items:center; line-height:1.5em; padding-top:8rpx;}
+.grace-box-banner-line{overflow:hidden;font-weight: 600; display:flex; width:100%; justify-content:center; align-items:center; line-height:1.5em; padding-top:8rpx;}
 .grace-box-banner-line-text1{}
 .grace-box-banner-line-text2{margin-left:3px;}
 </style>
