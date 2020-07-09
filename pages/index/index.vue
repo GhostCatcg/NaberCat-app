@@ -13,18 +13,19 @@
 					:width="750"
 					:padding="50"
 					:spacing="0"
-					:indicatorWidth="38"
+					:indicatorWidth="30"
 					:indicatorHeight="10"
-					:indicatorActiveWidth="38"
-					:indicatorRadius="0"
+					:indicatorActiveWidth="30"
+					:indicatorRadius="10"
+					indicator-active-color="#fb6962"
 					:height="315"
 				></graceSwiper>
 			</view>
 
 			<view class="navTab">
 				<view class="navItem" v-for="(v, k) in navlist" :key="k">
-					<image class="grace-grids-icon-img img" :src="v.url" style="width: 80upx;height: 80upx;" ></image>
-					<text class="grace-grids-text">{{v.title}}</text>
+					<image class="grace-grids-icon-img img" :src="v.url" style="width: 80upx;height: 80upx;"></image>
+					<text class="grace-grids-text">{{ v.title }}</text>
 				</view>
 			</view>
 			<view class="grace-title "><image src="../../static/imgs/foods.png" style="width: 100%;" mode="widthFix"></image></view>
@@ -49,16 +50,6 @@ export default {
 			value1: '默认值',
 			swiperItems: [
 				{
-					img: 'https://img.yzcdn.cn/upload_files/2020/07/07/FnuQk3gh99SgCV9qda2Wz0zUjxH3.jpg',
-					url: '',
-					opentype: 'navigate'
-				},
-				{
-					img: 'https://img.yzcdn.cn/upload_files/2020/07/07/FuN7BCI_eVDWMMowxx2ps6PPl2aT.jpg',
-					url: '',
-					opentype: 'navigate'
-				},
-				{
 					img: 'https://img.yzcdn.cn/upload_files/2020/06/10/Ft0swVNjhSC7BA-Bdex50LeUEVT2.jpg',
 					url: '',
 					opentype: 'navigate'
@@ -67,41 +58,49 @@ export default {
 					img: 'https://img.yzcdn.cn/upload_files/2020/06/10/FsnHdHhXsf3PVGwuaF-zDDK3IN0G.jpg',
 					url: '',
 					opentype: 'navigate'
-				},
-				
+				}
 			],
-			navlist:[
+			navlist: [
 				{
-					title:'主粮',
-					url:'../../static/imgs/zhushi.png'
-				},	{
-					title:'驱虫',
-					url:'../../static/imgs/quchong.png'
-				},	{
-					title:'零食',
-					url:'../../static/imgs/lingshi.png'
-				},	{
-					title:'保健',
-					url:'../../static/imgs/baojian.png'
-				},	{
-					title:'日用',
-					url:'../../static/imgs/riyong.png'
-				},	{
-					title:'户外牵引',
-					url:'../../static/imgs/qianyin.png'
-				},	{
-					title:'玩具',
-					url:'../../static/imgs/wanju.png'
-				},	{
-					title:'狗窝',
-					url:'../../static/imgs/gou.png'
-				},	{
-					title:'猫咪专区',
-					url:'../../static/imgs/mao.png'
-				},	{
-					title:'其他',
-					url:'../../static/imgs/more.png'
+					title: '主粮',
+					url: '../../static/imgs/zhushi.png'
 				},
+				{
+					title: '驱虫',
+					url: '../../static/imgs/quchong.png'
+				},
+				{
+					title: '零食',
+					url: '../../static/imgs/lingshi.png'
+				},
+				{
+					title: '保健',
+					url: '../../static/imgs/baojian.png'
+				},
+				{
+					title: '日用',
+					url: '../../static/imgs/riyong.png'
+				},
+				{
+					title: '户外牵引',
+					url: '../../static/imgs/qianyin.png'
+				},
+				{
+					title: '玩具',
+					url: '../../static/imgs/wanju.png'
+				},
+				{
+					title: '狗窝',
+					url: '../../static/imgs/gou.png'
+				},
+				{
+					title: '猫咪专区',
+					url: '../../static/imgs/mao.png'
+				},
+				{
+					title: '其他',
+					url: '../../static/imgs/more.png'
+				}
 			]
 		};
 	},
@@ -151,7 +150,7 @@ page {
 }
 .navTab {
 	width: 100%;
-	padding: 20upx 0;
+	padding: 30upx 0;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -161,6 +160,9 @@ page {
 		display: flex;
 		flex-direction: column;
 		text-align: center;
+		&:nth-child(-n+5){
+			margin-bottom:20upx;
+		}
 	}
 }
 .itemBox {

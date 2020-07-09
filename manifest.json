@@ -9,7 +9,7 @@
     "app-plus" : {
         "usingComponents" : true,
         "nvueCompiler" : "uni-app",
-		"compilerVersion" : 3,
+        "compilerVersion" : 3,
         "splashscreen" : {
             "alwaysShowBeforeRender" : true,
             "waiting" : true,
@@ -57,9 +57,10 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wxb1553385bd2505f5",
         "setting" : {
-            "urlCheck" : false
+            "urlCheck" : false,
+            "minified" : true
         },
         "usingComponents" : true
     },
