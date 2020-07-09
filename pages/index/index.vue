@@ -11,14 +11,13 @@
 				<graceSwiper
 					:swiperItems="swiperItems"
 					:width="750"
-					:padding="30"
-					:indicatorWidth="30"
+					:padding="50"
+					:spacing="0"
+					:indicatorWidth="38"
 					:indicatorHeight="10"
-					:indicatorActiveWidth="30"
-					:indicatorRadius="10"
-					interval="3000"
-					indicator-active-color="#fb6962"
-					:height="400"
+					:indicatorActiveWidth="38"
+					:indicatorRadius="0"
+					:height="315"
 				></graceSwiper>
 			</view>
 
@@ -31,9 +30,9 @@
 			<view class="grace-title "><image src="../../static/imgs/foods.png" style="width: 100%;" mode="widthFix"></image></view>
 			<view class="itemBox">
 				<view class="item" v-for="v in 6" :key="v">
-					<view class="pic"><image src="https://img.alicdn.com/imgextra/i3/2335305051/O1CN01FnNZIu1nBP3yqCzSJ_!!2335305051.jpg_430x430q90.jpg" mode="widthFix"></image></view>
-					<view class="memo">petmaster佩玛思特幼猫粮2kg</view>
-					<view class="price">￥128</view>
+					<view class="pic"><image src="https://img.yzcdn.cn/upload_files/2020/03/18/FvVMEMqsT1JiCUhZxdWVci6adNn_.jpg" mode="widthFix"></image></view>
+					<view class="memo">NOW无谷小型犬四叶草全龄粮6磅/12磅/25磅 泰迪比熊去泪痕狗粮 加拿大进口</view>
+					<view class="price">￥269</view>
 				</view>
 			</view>
 		</view>
@@ -54,11 +53,11 @@ export default {
 					url: '',
 					opentype: 'navigate'
 				},
-				// {
-				// 	img: 'https://img.yzcdn.cn/upload_files/2020/07/07/FuN7BCI_eVDWMMowxx2ps6PPl2aT.jpg',
-				// 	url: '',
-				// 	opentype: 'navigate'
-				// },
+				{
+					img: 'https://img.yzcdn.cn/upload_files/2020/07/07/FuN7BCI_eVDWMMowxx2ps6PPl2aT.jpg',
+					url: '',
+					opentype: 'navigate'
+				},
 				{
 					img: 'https://img.yzcdn.cn/upload_files/2020/06/10/Ft0swVNjhSC7BA-Bdex50LeUEVT2.jpg',
 					url: '',
