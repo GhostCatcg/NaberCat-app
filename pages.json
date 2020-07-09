@@ -2,7 +2,7 @@
 	"pages": [{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页",
+				"navigationBarTitleText": "NaberCat 宠物用品商城",
 				"titleNView": false
 				// "navigationStyle" : "custom"
 			}

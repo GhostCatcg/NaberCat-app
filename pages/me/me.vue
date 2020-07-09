@@ -2,26 +2,36 @@
 	<gracePage :isSwitchPage="true" :customHeader="false" style=";background: #f4f5f6;">
 		<view slot="gBody" class="grace-body" style="padding:0;width: 100%">
 			<view class="header">
-				<view class="avatar"><image src="../../static/tabbar/me.png" mode=""></image></view>
+				<view class="avatar"><image src="../../static/imgs/head.png" mode=""></image></view>
 				<view class="userInfo">
-					<view class="userPhone">User Name</view>
+					<view class="userPhone">GhostCat</view>
 					<view><text class="tips">成长值0</text></view>
 				</view>
 				<view class="code">
-					<text class="grace-icons icon-scancode"></text>会员码
+					<text class="grace-icons icon-scancode"></text>
+					会员码
 				</view>
 				<view class="level">
-					<view class="name"><image src="https://b.yzcdn.cn/member-center/free-icon-1.png" style="width: 30upx;margin-right: 10upx;vertical-align: middle;" mode="widthFix"></image>布兜家宠物用品商城</view>
-					<view class="toVip"> 成为会员 <text class="grace-icons icon-arrow-right"></text></view>
+					<view class="name">
+						<image src="https://b.yzcdn.cn/member-center/free-icon-1.png" style="width: 30upx;margin-right: 10upx;vertical-align: middle;" mode="widthFix"></image>
+						NaberCat 宠物用品商城
+					</view>
+					<view class="toVip">
+						成为会员
+						<text class="grace-icons icon-arrow-right"></text>
+					</view>
 				</view>
 			</view>
 			<!-- <view class="ucenter-line"></view> -->
-			<view class="outerbox"><graceBoxBanner :items="items" ></graceBoxBanner></view>
+			<view class="outerbox"><graceBoxBanner :items="items"></graceBoxBanner></view>
 			<!-- <view class="ucenter-line"></view> -->
 			<view class="orderBox outerbox">
 				<view class="title">
 					<text style="font-weight: 600;">我的订单</text>
-					<text style="float:right;font-size: 24upx;color: #999;" @click="toOrder">查看全部订单 <text class="grace-icons icon-arrow-right"></text></text>
+					<text style="float:right;font-size: 24upx;color: #999;" @click="toOrder">
+						查看全部订单
+						<text class="grace-icons icon-arrow-right"></text>
+					</text>
 				</view>
 				<view class="content">
 					<view class="item" @click="toOrder">
@@ -52,7 +62,7 @@
 				<view class="grace-list-items">
 					<text class="grace-list-icon grace-icons icon-shoppingcard" style="font-size: 28upx;color: #f9c67f;"></text>
 					<view class="grace-list-body " style="margin: 0;" @click="toShopCar">
-						<view class="grace-list-title" ><text class="grace-list-title-text">购物车</text></view>
+						<view class="grace-list-title"><text class="grace-list-title-text">购物车</text></view>
 					</view>
 					<text class="grace-list-arrow-right grace-icons icon-arrow-right"></text>
 				</view>
@@ -60,7 +70,7 @@
 			<!-- <view class="ucenter-line"></view> -->
 			<view class="grace-list grace-margin-top outerbox">
 				<view class="grace-list-items">
-					<text class="grace-list-icon grace-icons icon-set"  style="font-size: 28upx;color: #f9c67f;"></text>
+					<text class="grace-list-icon grace-icons icon-set" style="font-size: 28upx;color: #f9c67f;"></text>
 					<view class="grace-list-body " style="margin: 0;">
 						<view class="grace-list-title"><text class="grace-list-title-text">账户设置</text></view>
 					</view>
@@ -98,22 +108,36 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-	.outerbox{
-		width: 90%;
-		background: #fff;
-		padding: 0 20upx;
-		margin: 20rpx auto;
+.outerbox {
+	width: 90%;
+	background: #fff;
+	padding: 0 20upx;
+	margin: 20rpx auto;
 
-		border-radius: 20upx;
-		box-shadow:0px 0px 1px  rgba(0,0,0,0.04);
-	}
+	border-radius: 20upx;
+	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04);
+}
 .header {
 	width: 100%;
 	height: 300rpx;
 	position: relative;
 	display: flex;
-	background-image: url('https://img.yzcdn.cn/upload_files/2018/07/16/FtwPY7QwJLjqnDolIe5h0--Jyzmb.jpg');
-	background-size: 100% 100%;
+	// background-image: url('https://img.yzcdn.cn/upload_files/2018/07/16/FtwPY7QwJLjqnDolIe5h0--Jyzmb.jpg');
+	// background-size: 100% 100%;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	@keyframes gradient {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
 	padding-top: 10%;
 	.avatar {
 		width: 120upx;
@@ -130,22 +154,25 @@ export default {
 			height: 100%;
 		}
 	}
-	.code{
+	.code {
 		position: absolute;
 		right: 40upx;
 		top: 20upx;
 		padding: 10upx 20upx;
 		font-size: 24upx;
 		border-radius: 40upx;
-		background: rgba(0,0,0,.5);
+		background: rgba(0, 0, 0, 0.3);
 		color: #fff;
+		text{
+			margin-right:8upx;
 		}
+	}
 	.userInfo {
 		.userPhone {
 			font-size: 40upx;
 			font-weight: 700;
 			margin-bottom: 20rpx;
-
+			color:#fff;
 		}
 		.tips {
 			border: 1px solid #171717;
@@ -171,19 +198,20 @@ export default {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		.name{
-			    align-self: flex-start;
-			    padding-left: 10px;
-			    overflow: hidden;
-			    font-size: 12px;
-			    line-height: 40px;
-			    white-space: nowrap;
-			    text-overflow: ellipsis;
-			    -webkit-line-clamp: 1;
-			    -webkit-box-orient: vertical;
-			    color: #ffdea0;
+		.name {
+			align-self: flex-start;
+			padding-left: 10px;
+			overflow: hidden;
+			font-size: 12px;
+			line-height: 40px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			color: #ffdea0;
 		}
-		.toVip{
+		.toVip {
+			padding-right: 10px;
 			cursor: pointer;
 			color: #fff;
 			font-size: 24upx;
@@ -191,7 +219,6 @@ export default {
 	}
 }
 .orderBox {
-	
 	.title {
 		padding: 30upx 0upx;
 		border-bottom: 1px solid #f4f5f6;
@@ -203,14 +230,14 @@ export default {
 		justify-content: space-around;
 		.item {
 			text-align: center;
-			
+
 			.img {
 				width: 100%;
 				image {
 					width: 40upx;
 				}
 			}
-			.text{
+			.text {
 				font-size: 24upx;
 				margin: 10upx 0;
 			}

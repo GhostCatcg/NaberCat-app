@@ -14,7 +14,7 @@
 			</view>
 			<!-- 购物车主结构  -->
 			<view class="grace-shoppingcard" v-for="(item, index) in shoppingCard" :key="index">
-				<view class="grace-space-between grace-flex-vcenter">
+				<view class="grace-space-between grace-flex-vcenter" v-if="false" data-msg="自家用的小程序,没有其他商家">
 					<view class="grace-shopp-name">
 						<graceCheckBtn @change="shopChange" :parameter="[index]" :checked="item.checked">
 							<text class="grace-h5 grace-bold">{{item.shopName}}</text>
@@ -77,23 +77,23 @@ export default {
 			shoppingCard : [
 			{
 				"checked" : true,
-				"shopName": "hcoder 官方店",
+				"shopName": "NabarCat",
 				"shopId": "1",
 				"items": [
 					{
 						"goodsId": 1,
-						"goodsName": "hcoder 演示商品",
+						"goodsName": "佩马斯特猫粮",
 						"price": 10.00,
 						"count": 1,
-						"img": "https://m.360buyimg.com/babel/jfs/t1/3730/7/3438/394579/5b996f2eE1727c59e/373cf10d42a53b72.jpg",
+						"img": "https://img.alicdn.com/imgextra/i3/2549841410/O1CN01omuVhh1MHp3DQcMQ0_!!2549841410.jpg_430x430q90.jpg",
 						"checked" : true
 					},
 					{
 						"goodsId": 2,
-						"goodsName": "dcloud 演示商品",
+						"goodsName": "逗猫棒",
 						"price": 20.00,
 						"count": 1,
-						"img": "https://img14.360buyimg.com/n7/jfs/t1/1156/8/14017/123589/5bd9a4e8E7dbd4a15/70fbbccdf8811111.jpg",
+						"img": "https://img.alicdn.com/imgextra/i1/1750189441/O1CN01D59x3i2Jc1rjOdlkC_!!1750189441-0-lubanu-s.jpg_430x430q90.jpg",
 						"checked" : true
 					}
 				]
@@ -203,7 +203,7 @@ export default {
 page{background:#F8F8F8;}
 .empty-view{width:280rpx; height:280rpx; border-radius:280rpx; background-color:#F6F7F8; margin-top:30rpx;}
 .empty-img{width:220rpx; height:200rpx; margin:40rpx; border-radius:200rpx;}
-.grace-shoppingcard{background:#FFFFFF; border-radius:8rpx; padding:20rpx; margin-bottom:20rpx;}
+.grace-shoppingcard{background:#FFFFFF; border-radius:8rpx; padding:20rpx; margin-bottom:20rpx;margin-top:20rpx;}
 .grace-shopp-name{width:500rpx;}
 .grace-shopp-go{width:120rpx;}
 .grace-shoppingcard-goods{margin:10rpx 0; display:flex; flex-wrap:nowrap;}
