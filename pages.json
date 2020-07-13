@@ -27,8 +27,8 @@
 			}
 		}
 
-	  
-    ],
+
+	],
 	"subPackages": [{
 		"root": "packA",
 		"pages": [{
@@ -39,13 +39,39 @@
 				}
 			},
 			{
-					"path": "order/order",
-					"style": {
-						"navigationBarTitleText": "订单中心",
-						"titleNView": false
-					}
+				"path": "order/order",
+				"style": {
+					"navigationBarTitleText": "订单中心",
+					"titleNView": false
 				}
+			}
 
+			, {
+				"path": "goodDetail/goodDetail",
+				"style": {
+					"navigationBarTitleText": "商品详情",
+					"titleNView": false
+				}
+			}, {
+				"path": "pay/pay",
+				"style": {
+					"navigationBarTitleText": "支付",
+					"titleNView": false
+				}
+			}, {
+				"path": "address/address",
+				"style": {
+					"navigationBarTitleText": "地址管理",
+					"titleNView": false
+				}
+			},
+			{
+				"path": "address/add",
+				"style": {
+					"navigationBarTitleText": "添加地址",
+					"titleNView": false
+				}
+			}
 		]
 	}],
 

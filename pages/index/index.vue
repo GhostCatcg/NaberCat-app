@@ -30,7 +30,7 @@
 			</view>
 			<view class="grace-title "><image src="../../static/imgs/foods.png" style="width: 100%;" mode="widthFix"></image></view>
 			<view class="itemBox">
-				<view class="item" v-for="v in 6" :key="v">
+				<view class="item" v-for="v in 6" :key="v" @click="toDetail()">
 					<view class="pic"><image src="https://img.yzcdn.cn/upload_files/2020/03/18/FvVMEMqsT1JiCUhZxdWVci6adNn_.jpg" mode="widthFix"></image></view>
 					<view class="memo">NOW无谷小型犬四叶草全龄粮6磅/12磅/25磅 泰迪比熊去泪痕狗粮 加拿大进口</view>
 					<view class="price">￥269</view>
@@ -122,6 +122,11 @@ export default {
 		},
 		swiperchange(e) {
 			console.log(e);
+		},
+		toDetail(){
+			uni.navigateTo({
+				url:'../../packA/goodDetail/goodDetail'
+			})
 		}
 	},
 	components: {

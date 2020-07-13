@@ -70,7 +70,7 @@ export default{
 				}
 				this.tagsData[index].checked = true;
 				this.tagsData.splice(index,1,this.tagsData[index]);
-				this.$emit("change", this.tagsData[index].value, this.datas, index);
+				this.$emit("change", this.tagsData[index], this.datas, index);
 			}
 			//  多选
 			else{

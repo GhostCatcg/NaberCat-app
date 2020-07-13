@@ -145,9 +145,8 @@ export default {
 			})
 		},
 		checkout:function(){
-			uni.showToast({
-				title: '计算的数据保存在 shoppingCard 变量内 ^_^',
-				icon : "none"
+			uni.navigateTo({
+				url:'../../packA/pay/pay'
 			})
 		},
 		// 店铺选中按钮状态切换

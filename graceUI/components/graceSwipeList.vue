@@ -3,14 +3,14 @@
 		<graceTouch v-for="(item, index) in msgsIn" :key="index" @thStart="thStart" @thMove="thMove" @thEnd="thEnd" :datas="[index]">
 			<view class="grace-swipe-list-item" :style="{width:width+'rpx'}">
 				<view class="grace-swipe-list-item-body" :style="{width:width+'rpx', marginLeft:(item.x * -1) + 'px'}">
-					<view class="grace-swipe-list-img" :style="{width:imgSize[0], height:imgSize[1]}">
+					<!-- <view class="grace-swipe-list-img" :style="{width:imgSize[0], height:imgSize[1]}">
 						<image :src="item.img" mode="widthFix" :style="{width:imgSize[0], height:imgSize[1], borderRadius:'6rpx'}"></image>
 						<view class="grace-swipe-list-point" v-if="item.msgnumber > 0">{{item.msgnumber}}</view>
-					</view>
+					</view> -->
 					<view class="grace-swipe-list-content">
 						<view class="grace-swipe-list-title">
 							<text class="grace-swipe-list-title-text" :style="{fontSize:fontSizes[0], color:fontColors[0]}">{{item.title}}</text>
-							<text class="grace-swipe-list-title-text" :style="{fontSize:fontSizes[1], color:fontColors[1], flexShrink:0, marginLeft:'25rpx', marginRight:'25rpx'}">{{item.time}}</text>
+							<!-- <text class="grace-swipe-list-title-text" :style="{fontSize:fontSizes[1], color:fontColors[1], flexShrink:0, marginLeft:'25rpx', marginRight:'25rpx'}">{{item.time}}</text> -->
 						</view>
 						<text class="grace-swipe-list-desc" :style="{fontSize:fontSizes[2], color:fontColors[2], marginTop:'6rpx'}">{{item.content}}</text>
 					</view>
