@@ -2,6 +2,9 @@
 	<gracePage headerBG="#FFFFFF" :isSwitchPage="true" :customHeader="false">
 		<view slot="gBody" class="grace-body">
 			<view class="grace-margin-top" style="text-align:right;"><text class="grace-text grace-blue" style="margin-right:25rpx;" @tap="addAddress">+ 添加新地址</text></view>
+			<view class="tips">
+				左滑编辑或删除地址
+			</view>
 			<view class="grace-margin-top"><graceSwipeList :msgs="msgs" @itemTap="itemTap" @btnTap="btnTap"></graceSwipeList></view>
 		</view>
 	</gracePage>
@@ -90,4 +93,10 @@ export default {
 	components: { gracePage, graceSwipeList }
 };
 </script>
-<style></style>
+<style lang="less" scoped>
+	.tips{
+		font-size: 24upx;
+		padding-left: 20upx;
+		color: #999;
+	}
+</style>

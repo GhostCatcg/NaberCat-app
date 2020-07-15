@@ -2,7 +2,7 @@
 	<gracePage :isSwitchPage="true" headerBG="#FFFFFF" :customHeader="false">
 		<view slot="gBody" class="grace-flex-v1" id="gBody">
 			<view style="padding:20rpx 25rpx;" id="nav">
-				<graceNavBar :items="tabs" :currentIndex="swiperCurrentIndex" @change="navChange"></graceNavBar>
+				<graceNavBar :activeLineBg="'#f9c76f'" :textAlign="'center'" :activeDirection="'center'"  :items="tabs" :currentIndex="swiperCurrentIndex" @change="navChange"></graceNavBar>
 			</view>
 			<swiper :style="{height:mainHeight+'px'}" :current="swiperCurrentIndex" @change="swiperChange">
 				<swiper-item v-for="(item, index) in tabs" :key="index">
@@ -24,13 +24,14 @@
 							</view>
 							<!-- 以商铺为单位进行循环 -->
 							<block v-for="(shop, indexShop) in order.items" :key="indexShop">
-								<view class="grace-title">
-									<text class="grace-black">{{shop.shopName}}</text>
-								</view>
+								
 								<!-- 循环订单商品 -->
 								<view class="grace-order-goods" v-for="(goods, indexGoods) in shop.goods" :key="indexGoods">
-									<image :src="goods.goods_img" class="grace-order-goods-img" mode="widthFix"></image>
-									<text class="grace-order-goods-name">{{goods.goods_name}}</text>
+									<image src="https://img.yzcdn.cn/upload_files/2020/01/15/FnQ6j4jxidcdC8cyepTfIOqQi8Qz.jpg" class="grace-order-goods-img" mode="widthFix"></image>
+									<!-- <image :src="goods.goods_img" class="grace-order-goods-img" mode="widthFix"></image> -->
+									
+									<text class="grace-order-goods-name">美国oxyfresh氧亲新宠物洁齿水 猫狗通用罐头</text>
+<!-- 									<text class="grace-order-goods-name">{{goods.goods_name}}</text> -->
 									<view class="grace-order-goods-price">￥{{goods.goods_price}}<text class="grace-order-goods-num"> x {{goods.goods_buynum}}</text></view>
 								</view>
 							</block>

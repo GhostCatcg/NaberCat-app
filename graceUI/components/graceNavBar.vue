@@ -57,7 +57,7 @@ export default {
 .nav-item-title{width:100%; color:#333333;}
 .nav-active{}
 .nav-active-line-wrap{display:flex;}
-.nav-active-line{margin-top:5rpx;}
+.nav-active-line{margin-top:5rpx;text-align: center;}
 .grace-nav-center{justify-content:center; text-align:center;}
 @keyframes grace-nav-scale{0%{transform: scale(0.1);} 100%{transform: scale(1);}}
 .grace-nav-scale{animation:grace-nav-scale 300ms forwards;}

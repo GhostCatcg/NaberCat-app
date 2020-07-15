@@ -19,6 +19,7 @@
 					:indicatorRadius="10"
 					indicator-active-color="#fb6962"
 					:height="315"
+					@taped="taped"
 				></graceSwiper>
 			</view>
 
@@ -51,12 +52,12 @@ export default {
 			swiperItems: [
 				{
 					img: 'https://img.yzcdn.cn/upload_files/2020/06/10/Ft0swVNjhSC7BA-Bdex50LeUEVT2.jpg',
-					url: '',
+					url: '../../packA/goodDetail/goodDetail',
 					opentype: 'navigate'
 				},
 				{
 					img: 'https://img.yzcdn.cn/upload_files/2020/06/10/FsnHdHhXsf3PVGwuaF-zDDK3IN0G.jpg',
-					url: '',
+					url: '../../packA/goodDetail/goodDetail',
 					opentype: 'navigate'
 				}
 			],

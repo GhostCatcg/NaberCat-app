@@ -2,7 +2,7 @@
 	<gracePage headerBG="#FFFFFF" :isSwitchPage="true" footerBg="#FFFFFF" :customHeader="false">
 		<view slot="gBody" style="padding-bottom:120rpx;">
 			<!-- 轮播图 -->
-			<swiper
+		<!-- 	<swiper
 				class="grace-swiper"
 				autoplay="true"
 				indicator-dots
@@ -12,10 +12,24 @@
 				style="height:750rpx"
 				interval="5000"
 			>
-				<swiper-item class="grace-swiper-item" v-for="(item, index) in swiperItems" :key="index">
+				<swiper-item class="grace-swiper-item" v-for="(item, index) in swiperItems" :key="index" @change="swiperchange">
 					<image :src="item" mode="widthFix" class="grace-swiper-image" @click="previewImage"></image>
 				</swiper-item>
-			</swiper>
+			
+			</swiper> -->
+			<graceSwiper
+				:swiperItems="swpierobjs"
+				:width="750"
+				:height="750"
+				:padding="50"
+				:spacing="0"
+				:indicatorWidth="30"
+				:indicatorHeight="10"
+				:indicatorActiveWidth="30"
+				:indicatorRadius="10"
+				indicator-active-color="#fb6962"
+			></graceSwiper>
+			
 			<!-- 商品标题 分享按钮 -->
 			<view class="grace-product-padding grace-space-between grace-flex-vcenter">
 				<text class="grace-product-title grace-bold">{{ product.name }}</text>
@@ -141,8 +155,8 @@
 				</view>
 			</view>
 			<view class="grace-flex-end" style="width:460rpx;border-radius: 50upx;overflow: hidden;">
-				<button type="warn" class="grace-footer-button" style="background:#E55D52;" @tap="buyNow">立即购买</button>
 				<button type="warn" class="grace-footer-button" style="background:#F37B1D;" @tap="shopcar">加入购物车</button>
+				<button type="warn" class="grace-footer-button" style="background:#E55D52;" @tap="buyNow">立即购买</button>
 			</view>
 		</view>
 	</gracePage>
@@ -154,7 +168,7 @@ import graceBottomDialog from '../../graceUI/components/graceBottomDialog.vue';
 import graceNumberBox from '../../graceUI/components/graceNumberBox.vue';
 import graceSelectTags from '../../graceUI/components/graceSelectTags.vue';
 export default {
-	
+
 	data() {
 		return {
 			goodslist: [
@@ -273,16 +287,31 @@ export default {
 			typeSelected: '套餐一',
 			buyNum: 1,
 			SelectedPrice:'',
-			type:''
+			type:'',
+			current:0
 		};
 	},
 	computed:{
 		getprice(){
 			return this.SelectedPrice*this.buyNum
+		},
+		swpierobjs(){
+			let b = this.swiperItems.map((v)=>{
+				return {
+					img:v,
+					url:'',
+					opentype:'navigate'
+				}
+			})
+			return b
 		}
 	},
 	onLoad: function() {},
 	methods: {
+		swiperchange(e){
+			var current = e.detail.current;
+			this.current = current;
+		},
 		// 分享
 		share: function() {
 			uni.showToast({ title: '分享', icon: 'none' });
@@ -381,6 +410,7 @@ export default {
 		font-size: 24upx;
 		margin-bottom: 20upx;
 		.item-img {
+			position: relative;
 			width: 222upx;
 			image {
 				width: 222upx;

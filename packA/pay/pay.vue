@@ -70,7 +70,7 @@
 				</text>
 			</view>
 			<view class="submit">
-				<view><button  class="grace-button" style="border-radius: 50upx;background: #f9c76f;color: #fff;" :loading="status" @click="submit()">提交订单</button></view>
+				<view><button  class="grace-button" style="border-radius: 50upx;background: #E55D52;color: #fff;" :loading="status" @click="submit()">提交订单</button></view>
 			</view>
 			</view>
 		</view>
