@@ -1,5 +1,5 @@
 // const complainthost = 'http://172.16.11.234:8010/pc'
-const complainthost = 'http://172.16.11.247:8084/xlh' 
+const complainthost = 'http://nabercat.com/' 
 const ImageLinkshost = 'http://172.16.11.247:9090/res/'
 const net = {
 	_requestGet(url, data) {

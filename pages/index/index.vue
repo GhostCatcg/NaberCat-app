@@ -24,17 +24,17 @@
 			</view>
 
 			<view class="navTab">
-				<view class="navItem" v-for="(v, k) in navlist" :key="k">
+				<view class="navItem count06" v-for="(v, k) in navlist" :key="k">
 					<image class="grace-grids-icon-img img" :src="v.url" style="width: 80upx;height: 80upx;"></image>
 					<text class="grace-grids-text">{{ v.title }}</text>
 				</view>
 			</view>
 			<view class="grace-title "><image src="../../static/imgs/foods.png" style="width: 100%;" mode="widthFix"></image></view>
 			<view class="itemBox">
-				<view class="item" v-for="v in 6" :key="v" @click="toDetail()">
-					<view class="pic"><image src="https://img.yzcdn.cn/upload_files/2020/03/18/FvVMEMqsT1JiCUhZxdWVci6adNn_.jpg" mode="widthFix"></image></view>
-					<view class="memo">NOW无谷小型犬四叶草全龄粮6磅/12磅/25磅 泰迪比熊去泪痕狗粮 加拿大进口</view>
-					<view class="price">￥269</view>
+				<view class="item" v-for="v in featuredList" :key="v.id" @click="toDetail()">
+					<view class="pic"><image :src="'http://admin.nabercat.com/Public/admin/images/products/' + v.img" mode="widthFix"></image></view>
+					<view class="memo">{{v.name}}</view>
+					<view class="price">￥{{v.price}}</view>
 				</view>
 			</view>
 		</view>
@@ -45,6 +45,7 @@ import gracePage from '../../graceUI/components/gracePage.vue';
 import graceFlex from '../../graceUI/components/graceFlex.vue';
 import graceSearch from '../../graceUI/components/graceSearch.vue';
 var graceJS = require('@/Grace.JS/grace.js');
+import $net from '@/api/net.js';
 export default {
 	data() {
 		return {
@@ -60,6 +61,9 @@ export default {
 					url: '../../packA/goodDetail/goodDetail',
 					opentype: 'navigate'
 				}
+			],
+			featuredList:[
+				
 			],
 			navlist: [
 				{
@@ -106,11 +110,29 @@ export default {
 		};
 	},
 	onLoad: function() {
+		console.log("首页精选主粮")
+		this.getClass() // 获取分类
+		this.getFeatured() // 获取主粮
 		setTimeout(() => {
 			this.value1 = '默认值变了...';
 		}, 2000);
 	},
 	methods: {
+		async getFeatured() {
+			let res = await $net.net._requestGet('index.php/Home/index/goods_index_tui');
+			this.featuredList = res
+		},
+		async getClass() {
+			let res = await $net.net._requestGet('index.php/Home/index/index_cate');
+			// 要给vuex 因为分类页面用的也是这个数据
+			this.navlist = res.map((item,index)=>{
+				console.log(this.navlist[index].url)
+				return {
+					title:item.name,
+					url:this.navlist[index].url
+				}
+			})
+		},
 		inputting: function(e) {
 			console.log(e);
 		},
@@ -163,6 +185,9 @@ page {
 	justify-content: center;
 	.navItem {
 		width: 19%;
+		&.count06{
+			width: 33.333%;
+		}
 		display: flex;
 		flex-direction: column;
 		text-align: center;
@@ -186,7 +211,14 @@ page {
 		padding-bottom: 20upx;
 		.pic {
 			width: 100%;
+			height:	200upx;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
 			image {
+				height:100%;
+				object-fit: contain;
 				width: 100%;
 			}
 		}

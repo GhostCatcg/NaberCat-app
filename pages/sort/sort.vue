@@ -26,8 +26,7 @@
 								<image class="grace-product-list-img" :src="product.img" ></image>
 								<text class="grace-product-title">{{product.name}}</text>
 								<text class="grace-product-price">¥{{product.price}}</text>
-							</view>
-							
+							</view>	
 						</view> -->
 						<view class="item" :id="'products'+product.productId" :data-parentId="cate.cateid"  @click.stop="gotoinfo(product.productId)"
 						v-for="(product, productIndex) in allProducts['cate'+cate.cateid+'products']" :key="productIndex">

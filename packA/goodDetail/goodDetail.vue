@@ -2,7 +2,7 @@
 	<gracePage headerBG="#FFFFFF" :isSwitchPage="true" footerBg="#FFFFFF" :customHeader="false">
 		<view slot="gBody" style="padding-bottom:120rpx;">
 			<!-- 轮播图 -->
-		<!-- 	<swiper
+			<!-- 	<swiper
 				class="grace-swiper"
 				autoplay="true"
 				indicator-dots
@@ -29,7 +29,7 @@
 				:indicatorRadius="10"
 				indicator-active-color="#fb6962"
 			></graceSwiper>
-			
+
 			<!-- 商品标题 分享按钮 -->
 			<view class="grace-product-padding grace-space-between grace-flex-vcenter">
 				<text class="grace-product-title grace-bold">{{ product.name }}</text>
@@ -49,7 +49,7 @@
 				</view>
 			</view>
 			<view class="grace-common-line"></view>
-			<view class="grace-product-padding">
+			<view class="grace-product-padding" v-if="false">
 				<view class="grace-title grace-margin-top">
 					<text class="grace-title-text" style="color:#FF7900">为你推荐</text>
 					<text class="grace-text-small grace-gray" style="margin-right:8px;">
@@ -124,9 +124,9 @@
 							@click="previewImage"
 						></image>
 						<view class="grace-product-attr-info-body" style="position: relative;">
-							<text class="grace-product-attr-info-title" style="color: #ff7900; font-size: 36upx;">￥{{ colorSelected?getprice:product.price }}</text>
+							<text class="grace-product-attr-info-title" style="color: #ff7900; font-size: 36upx;">￥{{ colorSelected ? getprice : product.price }}</text>
 							<text class="" style="position: absolute;bottom: 0;" v-if="!colorSelected">请选择规格</text>
-							<text class="" style="position: absolute;bottom: 0;" v-else>已选择{{colorSelected}}</text>
+							<text class="" style="position: absolute;bottom: 0;" v-else>已选择{{ colorSelected }}</text>
 						</view>
 					</view>
 					<!-- 属性列表区 -->
@@ -167,8 +167,8 @@ import graceNavBar from '../../graceUI/components/graceNavBar.vue';
 import graceBottomDialog from '../../graceUI/components/graceBottomDialog.vue';
 import graceNumberBox from '../../graceUI/components/graceNumberBox.vue';
 import graceSelectTags from '../../graceUI/components/graceSelectTags.vue';
+import $net from '@/api/net.js';
 export default {
-
 	data() {
 		return {
 			goodslist: [
@@ -267,16 +267,16 @@ export default {
 			// 购买选择属性层展示
 			attrIsShow: false,
 			colorTips: [
-				{ name: '牛肉85g', value: '牛肉85g',price:'33', checked: true },
-				{ name: '羊肉85g', value: '羊肉85g',price:'35', checked: false },
-				{ name: '鸡肉85g', value: '鸡肉85g',price:'26', checked: false },
-				{ name: '马鲛鱼85g', value: '马鲛鱼85g',price:'40', checked: false },
-				{ name: '马鲛鱼羊肉85g', value: '羊马鲛鱼肉85g',price:'37', checked: false },
-				{ name: '鹿肉85g', value: '羊肉85g',price:'35', checked: false },
-				{ name: '牛肉185g', value: '牛肉185g',price:'50', checked: false },
-				{ name: '羊肉185g', value: '羊肉185g',price:'40', checked: false },
-				{ name: '鸡肉185g', value: '鸡肉185g',price:'43', checked: false },
-				{ name: '鹿肉185g', value: '羊鹿肉15g',price:'48', checked: false }
+				{ name: '牛肉85g', value: '牛肉85g', price: '33', checked: true },
+				{ name: '羊肉85g', value: '羊肉85g', price: '35', checked: false },
+				{ name: '鸡肉85g', value: '鸡肉85g', price: '26', checked: false },
+				{ name: '马鲛鱼85g', value: '马鲛鱼85g', price: '40', checked: false },
+				{ name: '马鲛鱼羊肉85g', value: '羊马鲛鱼肉85g', price: '37', checked: false },
+				{ name: '鹿肉85g', value: '羊肉85g', price: '35', checked: false },
+				{ name: '牛肉185g', value: '牛肉185g', price: '50', checked: false },
+				{ name: '羊肉185g', value: '羊肉185g', price: '40', checked: false },
+				{ name: '鸡肉185g', value: '鸡肉185g', price: '43', checked: false },
+				{ name: '鹿肉185g', value: '羊鹿肉15g', price: '48', checked: false }
 			],
 			colorSelected: '',
 			typeTips: [
@@ -286,31 +286,42 @@ export default {
 			],
 			typeSelected: '套餐一',
 			buyNum: 1,
-			SelectedPrice:'',
-			type:'',
-			current:0
+			SelectedPrice: '',
+			type: '',
+			current: 0
 		};
 	},
-	computed:{
-		getprice(){
-			return this.SelectedPrice*this.buyNum
+	computed: {
+		getprice() {
+			return this.SelectedPrice * this.buyNum;
 		},
-		swpierobjs(){
-			let b = this.swiperItems.map((v)=>{
+		swpierobjs() {
+			let b = this.swiperItems.map(v => {
 				return {
-					img:v,
-					url:'',
-					opentype:'navigate'
-				}
-			})
-			return b
+					img: 'http://admin.nabercat.com/Public/admin/images/products/' + v,
+					url: '',
+					opentype: 'navigate'
+				};
+			});
+			return b;
 		}
 	},
-	onLoad: function() {},
+	onLoad: function() {
+		console.log('请求数据');
+		this.getDetail();
+	},
 	methods: {
-		swiperchange(e){
+		swiperchange(e) {
 			var current = e.detail.current;
 			this.current = current;
+		},
+		async getDetail() {
+			let res = await $net.net._requestGet('index.php/Home/index/goods_detail/id/1');
+			console.log(res);
+			this.swiperItems = res.img;
+			this.product.name = res.name 
+			this.product.price = res.price
+			return res.data.data;
 		},
 		// 分享
 		share: function() {
@@ -333,13 +344,13 @@ export default {
 				urls: this.swiperItems
 			});
 		},
-		buyNow:function(){
-			this.type="buy"
-			this.attrIsShow = true
+		buyNow: function() {
+			this.type = 'buy';
+			this.attrIsShow = true;
 		},
 		//打开属性视图
 		shopcar: function() {
-			this.type='shopcar'
+			this.type = 'shopcar';
 			this.attrIsShow = true;
 		},
 		// 关闭属性
@@ -348,9 +359,9 @@ export default {
 		},
 		// 颜色选择
 		change1: function(e) {
-			console.log(e)
+			console.log(e);
 			this.colorSelected = e.value;
-			this.SelectedPrice = e.price
+			this.SelectedPrice = e.price;
 		},
 		// 类型选择
 		change2: function(e) {
@@ -373,16 +384,15 @@ export default {
 
 			// })
 			//如果想关闭属性
-			if(this.type=='shopcar'){
+			if (this.type == 'shopcar') {
 				uni.showToast({
-					title:'已添加至购物车',
-					icon:'none'
-				})
-				
-			}else{
+					title: '已添加至购物车',
+					icon: 'none'
+				});
+			} else {
 				uni.navigateTo({
-					url:'../pay/pay'
-				})
+					url: '../pay/pay'
+				});
 			}
 			this.closeAttr();
 		},
